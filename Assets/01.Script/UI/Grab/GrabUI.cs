@@ -1,8 +1,21 @@
 ﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class GrabUI : UIBase
 {
     public bool isGrab { private set; get; } = false;
+    [SerializeField] GameObject presentImg;
+
+    private void Reset()
+    {
+        presentImg = this.TryGetChildComponent<Image>("Img_Present").gameObject;
+    }
+
+    private void Awake()
+    {
+        presentImg.SetActive(false);
+    }
 
     private void Start()
     {
@@ -13,8 +26,10 @@ public class GrabUI : UIBase
     {
         isGrab = true;
         Sequence grabSequence = DOTween.Sequence();
-        grabSequence.Append(transform.DOMoveY(transform.position.y -270, 5f));
-        grabSequence.AppendInterval(2f);
-        grabSequence.Append(transform.DOMoveY(transform.position.y, 5f));
+        grabSequence.Append(transform.DOMoveY(transform.position.y - 270, 2.5f));
+        grabSequence.AppendInterval(1f);
+        grabSequence.AppendCallback(() => presentImg.SetActive(true));
+        grabSequence.Append(transform.DOMoveY(transform.position.y, 2.5f));
+        grabSequence.onComplete = () => { isGrab = false; presentImg.SetActive(false); };
     }
 }
