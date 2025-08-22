@@ -30,6 +30,17 @@ public class GrabUI : UIBase
         grabSequence.AppendInterval(1f);
         grabSequence.AppendCallback(() => presentImg.SetActive(true));
         grabSequence.Append(transform.DOMoveY(transform.position.y, 2.5f));
-        grabSequence.onComplete = () => { isGrab = false; presentImg.SetActive(false); };
+        grabSequence.onComplete = () => { SuccedGrab(); };
+    }
+
+    void SuccedGrab()
+    {
+        UIManager manager = UIManager.Instance;
+        manager.GetUI<PresentUI>().OffUI();
+        manager.GetUI<DrawingUI>().OffUI();
+        manager.GetUI<BackGroundUI>().OffUI();
+        manager.GetUI<DrawPopupUI>().OnUI();
+        isGrab = false;
+        presentImg.SetActive(false);
     }
 }

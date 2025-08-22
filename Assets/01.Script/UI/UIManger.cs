@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     {
         get
         {
-            if(null == instance)
+            if (null == instance)
             {
                 GameObject obj = new GameObject("UIManager");
                 DontDestroyOnLoad(obj);
@@ -70,7 +70,10 @@ public class UIManager : MonoBehaviour
 
     public void Add(UIBase _ui)
     {
-        ui.Add(_ui.GetType(), _ui);
+        if (ui.ContainsKey(_ui.GetType()) == false)
+        {
+            ui.Add(_ui.GetType(), _ui);
+        }
     }
 
     public void Remove<T>() where T : UIBase
