@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52f02a5a2a9bd146bdac938d4340857, type: 3}
+  m_Name: Diamond
+  m_EditorClassIdentifier: 
+  productionName: "\uB2E4\uC774\uC544\uBAAC\uB4DC"
+  productionPrice: 200000
+  productionDiscription: "\uBCF4\uC11D\uC758 \uC655 \uB2E4\uC774\uC544\uBAAC\uB4DC"
+  productionRank: 65
+  productionImg: {fileID: -4080278737599844964, guid: fdd7c39b6deb3f840b5fc0e9cbc6cb00, type: 3}

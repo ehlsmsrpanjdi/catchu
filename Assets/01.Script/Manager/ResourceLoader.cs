@@ -16,6 +16,7 @@ public class ResourceLoader : MonoBehaviour
     {
         await ResourcesManager.Instance.LoadResource<Sprite>(ResourceStringHelper.OnClickedImg);
         await ResourcesManager.Instance.LoadResource<Sprite>(ResourceStringHelper.UnClickedImg);
+        await ResourcesManager.Instance.LoadResource<Sprite>(ResourceStringHelper.ReceivceImg);
     }
 
 }

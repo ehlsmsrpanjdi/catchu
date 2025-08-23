@@ -36,10 +36,17 @@ public class GrabUI : UIBase
     void SuccedGrab()
     {
         UIManager manager = UIManager.Instance;
+        DrawPopupUI drawPopupUI = manager.GetUI<DrawPopupUI>();
+
         manager.GetUI<PresentUI>().OffUI();
         manager.GetUI<DrawingUI>().OffUI();
         manager.GetUI<BackGroundUI>().OffUI();
-        manager.GetUI<DrawPopupUI>().OnUI();
+        drawPopupUI.OnUI();
+
+        ProductionSO popProduction = ProductionDataManager.Instance.GetProduction();
+        drawPopupUI.SetData(popProduction);
+
+
         isGrab = false;
         presentImg.SetActive(false);
     }

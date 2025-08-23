@@ -25,6 +25,12 @@ public class DrawPopupHandle : UIBase, IPointerDownHandler, IPointerUpHandler
         UIManager.Instance.Add(this);
     }
 
+    public override void OnUI()
+    {
+        base.OnUI();
+        handleImg.rectTransform.position = new Vector2(handleImg.rectTransform.position.x, startYPos);
+    }
+
     private void Update()
     {
         if (true == isClick)

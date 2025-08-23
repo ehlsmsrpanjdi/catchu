@@ -8,5 +8,6 @@
 
     public const string UnClickedImg = "UnClickedImg";
     public const string OnClickedImg = "OnClickedImg";
+    public const string ReceivceImg = "ReceiveImg";
 
 }
