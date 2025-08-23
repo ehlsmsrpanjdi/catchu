@@ -58,6 +58,12 @@ public class DrawPopupUI : UIBase
         transform.DOScale(endScale, 0.5f).From(startScale);
     }
 
+    public override void OffUI()
+    {
+        base.OffUI();
+        transform.DOKill();
+    }
+
     public void SetData(ProductionSO _So)
     {
         BackPresent.sprite = _So.productionImg;
@@ -76,10 +82,18 @@ public class DrawPopupUI : UIBase
         StartCoroutine(PopupOffCoroutine());
     }
 
+    public void CloseString()
+    {
+        productionName.gameObject.SetActive(false);
+        productionDiscription.gameObject.SetActive(false);
+        productionPrice.gameObject.SetActive(false);
+    }
+
     IEnumerator PopupOffCoroutine()
     {
         DrawPopupHandle popUpHandler = UIManager.Instance.GetUI<DrawPopupHandle>();
         popUpHandler.gameObject.SetActive(false);
+        popUpHandler.SetOriginPos();
 
         while (FrontPopup.fillAmount > 0.05f)
         {
