@@ -7,6 +7,7 @@ public class ReceiveButton : Button
     {
         UIManager uiManager = UIManager.Instance;
         uiManager.Close<ReceiveUI>();
+        uiManager.Close<ParticleUI>();
         uiManager.Close<DrawPopupUI>();
         uiManager.Open<DrawingUI>();
         uiManager.Open<PresentUI>();

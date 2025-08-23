@@ -104,6 +104,11 @@ public class DrawPopupUI : UIBase
 
         UIManager.Instance.Open<ReceiveUI>();
 
+        if(ProductionDataManager.Instance.selectedProductionRank == 'A')
+        {
+            UIManager.Instance.Open<ParticleUI>();
+        }
+
         productionName.gameObject.SetActive(true);
         productionDiscription.gameObject.SetActive(true);
         productionPrice.gameObject.SetActive(true);

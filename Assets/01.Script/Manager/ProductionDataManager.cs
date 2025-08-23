@@ -10,6 +10,8 @@ public class ProductionDataManager : MonoBehaviour
 
     readonly Dictionary<char, List<ProductionSO>> itemDictionary = new Dictionary<char, List<ProductionSO>>();
 
+    public char selectedProductionRank { get; private set; }
+
     static ProductionDataManager instance;
 
     public static ProductionDataManager Instance
@@ -57,7 +59,9 @@ public class ProductionDataManager : MonoBehaviour
 
         List<ProductionSO> list = itemDictionary[randomKey];
         int randomIndex = Random.Range(0, list.Count);
-        return list[randomIndex];
+        ProductionSO selectedProduction = list[randomIndex];
+        selectedProductionRank = list[randomIndex].productionRank;
+        return selectedProduction;
     }
 
 }
